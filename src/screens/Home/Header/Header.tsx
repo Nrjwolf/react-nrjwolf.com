@@ -14,7 +14,7 @@ const Header: FC<HeaderProps> = props => {
 
     return (
         <>
-            <ImageLogo src='nrjwolf-logo.png' width={100} />
+            <ImageLogo src='images/nrjwolf-logo.png' width={100} />
 
             <div style={{ padding: '5px' }}>
                 <Text style='bold' color={fontColor}>
