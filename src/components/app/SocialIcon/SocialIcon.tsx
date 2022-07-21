@@ -1,7 +1,6 @@
 import React, { FC } from 'react'
 import { SocialIcon as SocialIconLib } from 'react-social-icons'
 import Hover from '../../lib/Animations/Hover/Hover'
-import HoverColor from '../../lib/Animations/HoverColor/HoverColor'
 import Button from '../../lib/Button/Button'
 import './SocialIcon.css'
 
