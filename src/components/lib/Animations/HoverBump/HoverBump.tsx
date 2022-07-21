@@ -2,7 +2,8 @@ import React, { FC } from 'react'
 import { useSpring, animated } from 'react-spring'
 
 type HoverProps = {
-    children: React.ReactNode
+    children: React.ReactNode,
+    onHovered?: (isHovered: boolean) => void,
 }
 
 const Hover: FC<HoverProps> = props => {
@@ -10,17 +11,12 @@ const Hover: FC<HoverProps> = props => {
 
     const mouseHover = (value: boolean) => {
         setIsHovered(value)
+        props.onHovered?.(value)
     }
 
     const hoverProps = useSpring({
-        from: {
-            scale: 1,
-            y: 0,
-        },
-        to: {
-            scale: isHovered ? 1.05 : 1,
-            y: isHovered ? -5 : 0
-        },
+        scale: isHovered ? 1.05 : 1,
+        y: isHovered ? -5 : 0,
         config: { duration: 150 },
     })
 

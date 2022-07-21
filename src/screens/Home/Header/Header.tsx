@@ -15,9 +15,13 @@ const Header: FC<HeaderProps> = props => {
     return (
         <>
             <ImageLogo src='nrjwolf-logo.png' width={100} />
-            <Text style='bold' color={fontColor}>
-                IT Developer
-            </Text>
+
+            <div style={{ padding: '5px' }}>
+                <Text style='bold' color={fontColor}>
+                    IT Developer
+                </Text>
+            </div>
+
             <SocialButtons color={fontColor} />
         </>
     )
