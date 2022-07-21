@@ -1,6 +1,6 @@
-import AppBackground from './components/Background/Background'
-import ImageLogo from './components/ImageLogo/ImageLogo'
-import Text from './components/Text/Text'
+import AppBackground from "./components/app/Background/Background"
+import ImageLogo from "./components/app/ImageLogo/ImageLogo"
+import Text from "./components/app/Text/Text"
 
 export default function App() {
   return (

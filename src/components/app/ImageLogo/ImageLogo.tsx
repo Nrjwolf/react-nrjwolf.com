@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
-import FadeIn from '../Animations/FadeIn/FadeIn'
-import Hover from '../Animations/Hover/Hover'
-import ImageShadow from '../ImageShadow/ImageShadow'
+import FadeIn from '../../lib/Animations/FadeIn/FadeIn'
+import Hover from '../../lib/Animations/Hover/Hover'
+import ImageShadow from '../../lib/ImageShadow/ImageShadow'
 
 type ImageLogoProps = {
     src: string
