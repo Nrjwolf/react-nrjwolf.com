@@ -1,5 +1,6 @@
 import React, { FC } from 'react'
 import { useSpring, animated } from 'react-spring'
+import { BrowserView } from 'react-device-detect'
 
 type HoverProps = {
     children: React.ReactNode,
@@ -21,11 +22,13 @@ const Hover: FC<HoverProps> = props => {
     })
 
     return (
-        <span onMouseEnter={() => mouseHover(true)} onMouseLeave={() => mouseHover(false)}>
-            <animated.div style={{ ...hoverProps }}>
-                {props.children}
-            </animated.div>
-        </span>
+        <BrowserView>
+            <span onMouseEnter={() => mouseHover(true)} onMouseLeave={() => mouseHover(false)}>
+                <animated.div style={{ ...hoverProps }}>
+                    {props.children}
+                </animated.div>
+            </span>
+        </BrowserView>
     )
 }
 
