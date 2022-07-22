@@ -11,6 +11,7 @@ type HeaderProps = {
 const Header: FC<HeaderProps> = props => {
     const appContext = useContext(AppContext)
     const fontColor = appContext?.fontColor
+    const highlightColor = appContext?.highlightColor
 
     return (
         <>
@@ -22,7 +23,7 @@ const Header: FC<HeaderProps> = props => {
                 </Text>
             </div>
 
-            <SocialButtons color={fontColor} />
+            <SocialButtons color={fontColor} highlightColor={highlightColor} />
         </>
     )
 }

@@ -9,21 +9,24 @@ type SocialIconProps = {
     name: string
     url: string
     color?: string
+    highlightColor?: string
     width?: number
 }
 
 const SocialIcon: FC<SocialIconProps> = props => {
-    const { name, width = 50, color = '#fff' } = props
+    const { name, width = 50, color = '#fff', highlightColor = '#fff' } = props
     const [isHovered, setIsHovered] = React.useState(false)
     const [animatedColor, setAnimatedColor] = React.useState(color)
 
     const handleClick = () => {
-        if (props.url)
+        if (props.url) {
+            setIsHovered(false)
             window.open(props.url, '_blank', 'noopener,noreferrer')
+        }
     }
 
     useSpring({
-        color: isHovered ? '#fff' : color,
+        color: isHovered ? highlightColor : color,
         config: { duration: 60 },
         onChange: (p) => {
             setAnimatedColor(p.value.color)

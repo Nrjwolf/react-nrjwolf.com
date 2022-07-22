@@ -2,6 +2,7 @@ import { createContext } from "react"
 
 interface AppContextInterface {
     fontColor: string
+    highlightColor: string
 }
 
 export const AppContext = createContext<AppContextInterface | null>(null)
@@ -13,7 +14,8 @@ type AppProviderProps = {
 const AppProvider: React.FC<AppProviderProps> = props => {
 
     const context: AppContextInterface = {
-        fontColor: '#a9a9b3'
+        fontColor: '#a9a9b3',
+        highlightColor: '#fff'
     }
 
     return (

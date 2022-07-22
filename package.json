@@ -1,6 +1,6 @@
 {
   "name": "nrjwolf.com",
-  "version": "1.0.01",
+  "version": "1.0.02",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
