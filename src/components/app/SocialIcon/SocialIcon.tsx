@@ -4,6 +4,7 @@ import Hover from '../../lib/Animations/HoverBump/HoverBump'
 import Button from '../../lib/Button/Button'
 import './SocialIcon.css'
 import { useSpring, animated } from 'react-spring'
+import { isMobile } from 'react-device-detect'
 
 type SocialIconProps = {
     name: string
@@ -35,7 +36,7 @@ const SocialIcon: FC<SocialIconProps> = props => {
 
     return (
         <div className='SocialIcon'>
-            <Hover onHovered={(v) => setIsHovered(v)}>
+            <Hover onHovered={(v) => setIsHovered(isMobile ? false : v)}>
                 <Button onClick={handleClick}>
                     <SocialIconLib network={name} bgColor={animatedColor} style={{ height: width, width: width }} />
                 </Button>
