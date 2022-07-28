@@ -4,16 +4,12 @@ import CenterHorizontally from '../../components/app/CenterHorizontally/CenterHo
 import FullscreenCenter from '../../components/app/FullscreenCenter/FullscreenCenter'
 import { CircleLoading } from '../../components/lib/CircleLoading/CircleLoading'
 import appConfig from '../../configs/app.config'
-import { getDirectusImage } from '../../utils/getDirectusImage'
 import { get } from '../../utils/request'
 import Header from '../Home/Header/Header'
 import ProjectCard from './ProjectCard/ProjectCard'
 import ProjectsScreenColumn from './ProjectsScreenColumn'
 import { Project, Projects } from './projectsTypes'
-import { Grid } from '@mui/material'
-import { Box } from '@mui/system'
-import Column from '../../components/app/Column/Column'
-import { ROUTES } from '../../utils/Navigation/Navigation'
+import Footer from '../../components/app/Footer/Footer'
 
 type ProjectScreenProps = {
     children?: React.ReactNode
@@ -62,8 +58,8 @@ const ProjectScreen: FC<ProjectScreenProps> = props => {
                         {projectsList}
                     </div>
 
+                    <Footer/>
                 </ProjectsScreenColumn>
-
             </CenterHorizontally>
         </AppBackground >
     )

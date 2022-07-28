@@ -16,7 +16,7 @@ const Text: FC<TextProps> = props => {
     const className = `font-ubuntu-${style}`
     return (
         <div style={{
-            fontSize: `calc(${size}px + 2vmin)`
+            fontSize: `calc(${size}px + 1vmin)`
         }}>
             <span className={className} style={{ ...props }}>
                 {props.children}
