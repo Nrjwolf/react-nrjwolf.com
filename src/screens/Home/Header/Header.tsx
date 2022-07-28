@@ -52,19 +52,19 @@ const Header: FC<HeaderProps> = props => {
                 </FadeIn>
             </animated.div>
 
-            <CenterHorizontally>
-                <animated.div style={animationFadeOutProps}>
+            <animated.div style={animationFadeOutProps}>
 
-                    <div style={{ padding: '10px' }}>
+                <div style={{ padding: '10px' }}>
+                    <CenterHorizontally>
                         <Text style='bold' color={fontColor}>
-                            IT Developer
+                            {`IT Developer`}
                         </Text>
-                    </div>
+                    </CenterHorizontally>
+                </div>
 
-                    <SocialButtons color={fontColor} highlightColor={highlightColor} />
+                <SocialButtons color={fontColor} highlightColor={highlightColor} />
 
-                </animated.div>
-            </CenterHorizontally>
+            </animated.div>
         </>
     )
 }

@@ -18,7 +18,7 @@ const Text: FC<TextProps> = props => {
         <div style={{
             fontSize: `calc(${size}px + 2vmin)`
         }}>
-            <span className={className} style={{ color: props.color }}>
+            <span className={className} style={{ ...props }}>
                 {props.children}
             </span>
         </div>
