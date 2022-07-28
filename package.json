@@ -1,8 +1,11 @@
 {
   "name": "nrjwolf.com",
-  "version": "1.0.07",
+  "version": "1.0.1",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@mui/material": "^5.9.2",
     "@nrjwolf/color-log": "^1.0.4",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",

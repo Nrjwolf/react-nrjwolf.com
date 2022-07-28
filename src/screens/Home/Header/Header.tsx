@@ -8,9 +8,12 @@ import FadeIn from '../../../components/lib/Animations/FadeIn/FadeIn'
 import { useSpring, animated } from 'react-spring'
 import delay from '../../../utils/delay'
 import { ROUTES } from '../../../utils/Navigation/Navigation'
+import CenterHorizontally from '../../../components/app/CenterHorizontally/CenterHorizontally'
+import Column from '../../../components/app/Column/Column'
 
 type HeaderProps = {
-    children?: React.ReactNode
+    children?: React.ReactNode,
+    navigateOnClick?: boolean
 }
 
 const TIMING = {
@@ -20,6 +23,7 @@ const TIMING = {
 }
 
 const Header: FC<HeaderProps> = props => {
+    const { navigateOnClick = true } = props
     const navigation = useNavigate()
     const [isClickedOnLogo, setIsClickedOnLogo] = useState(false)
     const appContext = useContext(AppContext)
@@ -32,29 +36,35 @@ const Header: FC<HeaderProps> = props => {
     })
 
     const onLogoClick = async () => {
-        setIsClickedOnLogo(true)
-        await delay(TIMING.NAVIGATE_TO_PROJECTS_DELAY)
-        navigation(ROUTES.PROJECTS)
+        if (navigateOnClick) {
+            setIsClickedOnLogo(true)
+            await delay(TIMING.NAVIGATE_TO_PROJECTS_DELAY)
+            navigation(ROUTES.PROJECTS)
+        }
     }
 
     return (
         <>
+
             <animated.div style={animationFadeOutProps}>
                 <FadeIn duration={TIMING.FADE_IN_LOGO}>
                     <ImageLogo src='images/nrjwolf-logo.png' width={100} onClick={() => onLogoClick()} />
                 </FadeIn>
             </animated.div>
 
-            <animated.div style={animationFadeOutProps}>
+            <CenterHorizontally>
+                <animated.div style={animationFadeOutProps}>
 
-                <div style={{ padding: '5px' }}>
-                    <Text style='bold' color={fontColor}>
-                        IT Developer
-                    </Text>
-                </div>
-                <SocialButtons color={fontColor} highlightColor={highlightColor} />
+                    <div style={{ padding: '10px' }}>
+                        <Text style='bold' color={fontColor}>
+                            IT Developer
+                        </Text>
+                    </div>
 
-            </animated.div>
+                    <SocialButtons color={fontColor} highlightColor={highlightColor} />
+
+                </animated.div>
+            </CenterHorizontally>
         </>
     )
 }

@@ -10,6 +10,10 @@ import Header from '../Home/Header/Header'
 import ProjectCard from './ProjectCard/ProjectCard'
 import ProjectsScreenColumn from './ProjectsScreenColumn'
 import { Project, Projects } from './projectsTypes'
+import { Grid } from '@mui/material'
+import { Box } from '@mui/system'
+import Column from '../../components/app/Column/Column'
+import { ROUTES } from '../../utils/Navigation/Navigation'
 
 type ProjectScreenProps = {
     children?: React.ReactNode
@@ -29,7 +33,13 @@ const ProjectScreen: FC<ProjectScreenProps> = props => {
         init()
     }, [])
 
-    const projectsList = projects.map(project => <ProjectCard info={project} />)
+    const projectsList = projects.filter(x => x.status == 'published').map(project => {
+        return (
+            <ProjectCard info={project} />
+        )
+    })
+
+    console.log(projects)
 
     if (isLoading) {
         return (
@@ -44,21 +54,18 @@ const ProjectScreen: FC<ProjectScreenProps> = props => {
     return (
         <AppBackground>
             <CenterHorizontally>
+
                 <ProjectsScreenColumn>
 
-                    {/* <Header /> */}
+                    <Header navigateOnClick={false} />
+                    <div style={{ marginTop: 10 }}>
+                        {projectsList}
+                    </div>
 
-                    {projectsList}
-                    {/* <img style={{}} src={getDirectusImage(projects[1].preview, 600)} alt="" /> */}
-                    {/* <img style={{flex: 1, width: '100%', height: '50px'}} src={getDirectusImage(projects[0].preview, 600)} alt="" /> */}
-                    {/* <img style={{flex: 1}} src={getDirectusImage(projects[1].preview, 600)} alt="" /> */}
-
-
-
-                    {/* Hi my name is */}
                 </ProjectsScreenColumn>
+
             </CenterHorizontally>
-        </AppBackground>
+        </AppBackground >
     )
 }
 

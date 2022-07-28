@@ -20,13 +20,11 @@ const ProjectCard: FC<ProjectCardProps> = props => {
     const imageUrl = getDirectusImage(info.preview, imgWidth, imgHeigth)
 
     const onClick = () => {
-        console.log(`click`)
+        window.open(info.url, '_blank', 'noopener,noreferrer')
     }
 
     return (
         <div style={{
-            // flex: 1,
-            // display: 'flex',
             flexDirection: 'column',
             padding: '20px',
         }}>
@@ -44,12 +42,14 @@ const ProjectCard: FC<ProjectCardProps> = props => {
             </Button>
 
             <Button onClick={onClick}>
-                <Text style='light' size={4}>
-                    {info.title}
-                </Text>
+                <div style={{ marginTop: '10px', marginBottom: '5px' }}>
+                    <Text style='light' size={1}>
+                        {info.description}
+                    </Text>
+                </div>
             </Button>
 
-            <Line/>
+            <Line />
         </div>
     )
 }
