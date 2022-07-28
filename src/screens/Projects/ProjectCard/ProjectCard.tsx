@@ -36,14 +36,14 @@ const ProjectCard: FC<ProjectCardProps> = props => {
             </Button>
 
             <Button onClick={onClick}>
-                <Text style='bold'>
+                <Text style='bold' size={14}>
                     {info.title}
                 </Text>
             </Button>
 
             <Button onClick={onClick}>
                 <div style={{ marginTop: '10px', marginBottom: '5px' }}>
-                    <Text style='light' size={1}>
+                    <Text style='light' size={8}>
                         {info.description}
                     </Text>
                 </div>
