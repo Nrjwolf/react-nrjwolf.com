@@ -1,0 +1,4 @@
+.CenterHorizontally {
+    display: flex;
+    justify-content: center;
+}

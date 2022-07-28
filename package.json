@@ -1,8 +1,12 @@
 {
   "name": "nrjwolf.com",
-  "version": "1.0.07",
+  "version": "1.0.1",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@mui/material": "^5.9.2",
+    "@nrjwolf/color-log": "^1.0.4",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
@@ -14,6 +18,7 @@
     "react-device-detect": "^2.2.2",
     "react-dom": "^18.2.0",
     "react-loading": "^2.0.3",
+    "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "react-social-icons": "^5.14.0",
     "react-spring": "^9.5.0",

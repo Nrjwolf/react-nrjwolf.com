@@ -1,5 +1,6 @@
 import React, { FC } from 'react'
-import AppBackground from "../../components/app/Background/Background"
+import AppBackground from "../../components/app/Background/AppBackground"
+import FullscreenCenter from '../../components/app/FullscreenCenter/FullscreenCenter'
 import Header from './Header/Header'
 
 type HomeProps = {
@@ -9,7 +10,9 @@ type HomeProps = {
 const Home: FC<HomeProps> = props => {
     return (
         <AppBackground>
-            <Header />
+            <FullscreenCenter>
+                <Header />
+            </FullscreenCenter >
         </AppBackground>
     )
 }
