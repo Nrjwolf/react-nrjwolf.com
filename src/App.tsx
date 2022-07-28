@@ -1,10 +1,10 @@
-import AppProveder  from './context/AppContext'
+import AppProvider  from './context/AppContext'
 import Home from "./screens/Home/Home"
 
 export default function App() {
   return (
-    <AppProveder>
+    <AppProvider>
       <Home />
-    </AppProveder>
+    </AppProvider>
   )
 }
