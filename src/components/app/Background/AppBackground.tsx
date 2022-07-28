@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import './Background.css'
+import './AppBackground.css'
 
 type AppBackgroundProps = {
     children?: React.ReactNode
