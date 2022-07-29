@@ -1,11 +1,10 @@
 import React, { FC } from 'react'
-import { BrowserRouter as Router, Routes, Route, } from "react-router-dom"
-import Home from '../../screens/Home/Home'
-import ProjectsScreen from '../../screens/Projects/ProjectsScreen'
+import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom"
+import Page404 from '../../components/app/Page404/Page404'
+import HomeScreen from '../../screens/Home/HomeScreen'
 
 export const ROUTES = {
     HOME: '/',
-    PROJECTS: '/projects',
 }
 
 type NavigationProps = {
@@ -18,8 +17,8 @@ const Navigation: FC<NavigationProps> = props => {
             <Router>
                 {props.children}
                 <Routes>
-                    <Route path={ROUTES.HOME} element={<Home />} />
-                    <Route path={ROUTES.PROJECTS} element={<ProjectsScreen />} />
+                    <Route path={ROUTES.HOME} element={<HomeScreen />} />
+                    <Route path="*" element={<Page404 />} />
                 </Routes>
 
             </Router>

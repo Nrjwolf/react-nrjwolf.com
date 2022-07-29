@@ -1,13 +1,13 @@
 import React, { FC } from 'react'
 import { useWindowSize } from '../../utils/useWindowSize'
 
-type ProjectsScreenColumnProps = {
+type HomeScreenColumnProps = {
     children?: React.ReactNode
 }
 
-const maxWidth = 700
+const maxWidth = 760
 
-const ProjectsScreenColumn: FC<ProjectsScreenColumnProps> = props => {
+const HomeScreenColumn: FC<HomeScreenColumnProps> = props => {
     const windowSize = useWindowSize()
 
     let width = windowSize.width ?? maxWidth
@@ -27,4 +27,4 @@ const ProjectsScreenColumn: FC<ProjectsScreenColumnProps> = props => {
     )
 }
 
-export default ProjectsScreenColumn
+export default HomeScreenColumn

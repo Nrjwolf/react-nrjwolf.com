@@ -6,6 +6,7 @@ import ImageShadow from '../../lib/ImageShadow/ImageShadow'
 
 import './ImageLogo.css'
 import FlipOnClick from '../../lib/Animations/FlipOnClick/FlipOnClick'
+import { Box, SkeletonCircle } from '@chakra-ui/react'
 
 type ImageLogoProps = {
     src: string
@@ -15,6 +16,7 @@ type ImageLogoProps = {
 }
 
 const ImageLogo: FC<ImageLogoProps> = props => {
+    const [isImgLoaded, setIsImgLoaded] = React.useState(false)
 
     const onClick = () => {
         if (props.onClick) {
@@ -22,16 +24,24 @@ const ImageLogo: FC<ImageLogoProps> = props => {
         }
     }
 
+    const onImageLoaded = () => {
+        setIsImgLoaded(true)
+    }
+
     return (
         <FlipOnClick>
             <Button onClick={() => onClick()}>
                 <div className='ImageLogo' >
                     <Hover>
-                        <ImageShadow src={props.src} width={props.width} height={props.height} />
+                        <Box>
+                            <SkeletonCircle size={props.width?.toString()} isLoaded={isImgLoaded}>
+                                <ImageShadow src={props.src} width={props.width} height={props.height} onLoad={onImageLoaded} />
+                            </SkeletonCircle>
+                        </Box>
                     </Hover>
                 </div>
             </Button>
-        </FlipOnClick>
+        </FlipOnClick >
     )
 }
 
