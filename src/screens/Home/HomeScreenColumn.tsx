@@ -21,6 +21,7 @@ const HomeScreenColumn: FC<HomeScreenColumnProps> = props => {
             flexDirection: 'column',
             alignItems: 'center',
             marginTop: '50px',
+            backgroundColor: '#fafafa',
         }}>
             {props.children}
         </div>

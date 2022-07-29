@@ -1,5 +1,5 @@
-import React, { FC } from 'react'
-import { Skeleton } from '@chakra-ui/react'
+import React, { FC, useContext } from 'react'
+import { Skeleton, Flex, Spacer, Center, Square, Box, Grid, GridItem, Image } from '@chakra-ui/react'
 import { getDirectusImage } from '../../../../utils/getDirectusImage'
 import Button from '../../../../components/lib/Button/Button'
 import ImageShadow from '../../../../components/lib/ImageShadow/ImageShadow'
@@ -8,6 +8,7 @@ import Hover from '../../../../components/lib/Animations/HoverBump/HoverBump'
 import Line from '../../../../components/lib/Line/Line'
 import { Project } from '../projectsTypes'
 import { useSpring, animated } from 'react-spring'
+import { AppContext } from '../../../../context/AppContext'
 
 type ProjectCardProps = {
     info: Project,
@@ -21,6 +22,10 @@ const fadeInTime = 150
 const fadeInTimeImage = 1000
 
 const ProjectCard: FC<ProjectCardProps> = props => {
+    const appContext = useContext(AppContext)
+    const fontColor = appContext?.fontColor
+    const highlightColor = appContext?.highlightColor
+
     const info = props.info
     const imageUrl = getDirectusImage(info.preview, imgWidth, imgHeigth)
     const [isImgLoaded, setIsImgLoaded] = React.useState(false)
@@ -35,7 +40,7 @@ const ProjectCard: FC<ProjectCardProps> = props => {
 
     const appearAnimationProps = useSpring({
         from: { opacity: 0, x: 0 },
-        to: { opacity: 1, x: -10 },
+        to: { opacity: 1, x: 0 },
         config: {
             duration: fadeInTime,
             tension: 400,    // How much tension is on the spring
@@ -45,46 +50,26 @@ const ProjectCard: FC<ProjectCardProps> = props => {
         delay: props.index * delayFadeInTime,
     })
 
-    const fadeInImageAfterLoaded = useSpring({
-        opacity: isImgLoaded ? 1 : 0,
-        config: { duration: fadeInTimeImage },
-    })
-
     return (
         <animated.div style={{ ...appearAnimationProps }}>
-            <div style={{
-                flexDirection: 'column',
-                padding: '20px',
-            }}>
 
-                <Skeleton isLoaded={isImgLoaded} height={imgHeigth} style={{ opacity: isImgLoaded ? 1 : 0.1 }} fadeDuration={0}>
-                    <Button onClick={onClick}>
-                        <Hover scaleTo={1.01} yTo={-1} duration={100}>
-
-                            <animated.div style={{ ...fadeInImageAfterLoaded }}>
-                                <ImageShadow src={imageUrl} width='100%' onLoad={onImageLoaded} />
-                            </animated.div>
-
-                        </Hover>
-                    </Button>
-                </Skeleton>
-
+            <Box maxW={imgWidth} marginBottom={5}>
                 <Button onClick={onClick}>
-                    <Text style='bold' size={14}>
+                    <Hover scaleTo={1.01}>
+                        <Skeleton isLoaded={isImgLoaded}>
+                            <ImageShadow src={imageUrl} onLoad={onImageLoaded} />
+                        </Skeleton>
+                    </Hover>
+                    <Text style='bold' size={14} color={fontColor}>
                         {info.title}
                     </Text>
+                    <Text style='light' size={8} color={fontColor}>
+                        {info.description}
+                    </Text>
                 </Button>
-
-                <Button onClick={onClick}>
-                    <div style={{ marginTop: '10px', marginBottom: '5px' }}>
-                        <Text style='light' size={8}>
-                            {info.description}
-                        </Text>
-                    </div>
-                </Button>
-
                 <Line />
-            </div>
+            </Box>
+
         </animated.div>
     )
 }

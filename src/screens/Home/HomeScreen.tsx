@@ -9,6 +9,8 @@ import Footer from '../../components/app/Footer/Footer'
 import ProjectsList from './Projects/ProjectList/ProjectList'
 import { useSpring, animated } from 'react-spring'
 import appConfig from '../../configs/app.config'
+import { Badge, Box, Center, Flex, Grid, GridItem, Image, Square, Stack, StackDivider, Text, VStack } from '@chakra-ui/react'
+import ImageShadow from '../../components/lib/ImageShadow/ImageShadow'
 
 type HomeScreenProps = {
     children?: React.ReactNode
@@ -40,34 +42,25 @@ const HomeScreen: FC<HomeScreenProps> = props => {
             return (
                 <>
                     <ProjectsList projects={projects} />
-                    <Footer />
+
                 </>
             )
         }
     }
 
-    // if (isLoading) {
     return (
         <AppBackground>
-            <CenterHorizontally>
-                <HomeScreenColumn>
-                    <Header />
-                    {projectsList()}
-                </HomeScreenColumn>
-            </CenterHorizontally>
-        </AppBackground >
-    )
-    // }
-
-    return (
-        <AppBackground>
-            <CenterHorizontally>
-                <HomeScreenColumn>
-                    <Header />
-                    <ProjectsList projects={projects} />
-                    <Footer />
-                </HomeScreenColumn>
-            </CenterHorizontally>
+            <Center>
+                <Flex color='white'>
+                    <Box flex='1' minHeight={'100vh'}>
+                        <Box marginTop={5} marginBottom={5}>
+                            <Header />
+                        </Box>
+                        {projectsList()}
+                        <Footer />
+                    </Box>
+                </Flex>
+            </Center>
         </AppBackground >
     )
 }

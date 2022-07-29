@@ -1,4 +1,5 @@
-import { FC } from 'react'
+import { Image } from '@chakra-ui/react'
+import { FC, useEffect, useRef } from 'react'
 import './ImageShadow.css'
 
 type ImageShadowProps = {
@@ -11,7 +12,9 @@ type ImageShadowProps = {
 const ImageShadow: FC<ImageShadowProps> = props => {
     return (
         <span className='shadowed' >
-            <img src={props.src} width={props.width} height={props.height} onLoad={props.onLoad}/>
+            <Image src={props.src} width={props.width} height={props.height} onLoad={(v) => {
+                props.onLoad && props.onLoad()
+            }} />
         </span>
     )
 }

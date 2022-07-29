@@ -1,7 +1,6 @@
 import React, { FC, useContext, useState } from 'react'
 import ImageLogo from '../../../components/app/ImageLogo/ImageLogo'
 import Text from "../../../components/app/Text/Text"
-import { AppContext } from '../../../context/AppContext'
 import SocialButtons from './SocialButtons/SocialButtons'
 import { useNavigate } from 'react-router-dom'
 import FadeIn from '../../../components/lib/Animations/FadeIn/FadeIn'
@@ -10,6 +9,8 @@ import delay from '../../../utils/delay'
 import { ROUTES } from '../../../utils/Navigation/Navigation'
 import CenterHorizontally from '../../../components/app/CenterHorizontally/CenterHorizontally'
 import Column from '../../../components/app/Column/Column'
+import { Center } from '@chakra-ui/react'
+import { AppContext } from '../../../context/AppContext'
 
 type HeaderProps = {
     children?: React.ReactNode,
@@ -36,14 +37,15 @@ const Header: FC<HeaderProps> = props => {
 
     return (
         <>
-
-            <ImageLogo src='images/nrjwolf-logo.png' width={100} />
+            <Center>
+                <ImageLogo src='images/nrjwolf-logo.png' width={100} />
+            </Center>
 
             <animated.div style={animationFadeOutProps}>
 
-                <div style={{ padding: '10px' }}>
+                <div style={{ padding: '0.3rem' }}>
                     <CenterHorizontally>
-                        <Text style='bold' color={fontColor}>
+                        <Text style='bold' color={fontColor} size={14}>
                             {`IT Developer`}
                         </Text>
                     </CenterHorizontally>

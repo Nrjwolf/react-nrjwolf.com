@@ -18,9 +18,9 @@ const ProjectsList: FC<ProjectsListProps> = props => {
         )
     })
     return (
-        <div style={{ marginTop: 10 }}>
+        <>
             {projectsList}
-        </div>
+        </>
     )
 }
 
