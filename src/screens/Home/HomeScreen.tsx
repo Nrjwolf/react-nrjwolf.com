@@ -52,7 +52,7 @@ const HomeScreen: FC<HomeScreenProps> = props => {
         <AppBackground>
             <Center>
                 <Flex color='white'>
-                    <Box flex='1' minHeight={'100vh'}>
+                    <Box flex='1' minHeight={'100vh'} p={6}>
                         <Box marginTop={5} marginBottom={5}>
                             <Header />
                         </Box>
