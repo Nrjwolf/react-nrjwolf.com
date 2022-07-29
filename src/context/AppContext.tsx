@@ -1,6 +1,6 @@
 import { createContext } from "react"
 
-interface AppContextInterface {
+export interface AppContextInterface {
     fontColor: string
     highlightColor: string
 }
