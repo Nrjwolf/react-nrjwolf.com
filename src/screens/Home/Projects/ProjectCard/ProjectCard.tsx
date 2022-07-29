@@ -56,9 +56,7 @@ const ProjectCard: FC<ProjectCardProps> = props => {
             <Box maxW={imgWidth} marginBottom={5}>
                 <Button onClick={onClick}>
                     <Hover scaleTo={1.01}>
-                        <Skeleton isLoaded={isImgLoaded}>
-                            <ImageShadow src={imageUrl} onLoad={onImageLoaded} />
-                        </Skeleton>
+                        <ImageShadow src={imageUrl} onLoad={onImageLoaded} />
                     </Hover>
                     <Text style='bold' size={14} color={fontColor}>
                         {info.title}
