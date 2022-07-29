@@ -13,7 +13,7 @@ const ProjectsList: FC<ProjectsListProps> = props => {
     const projectsList = projects.filter(x => x.status == 'published').map((project, i) => {
         return (
             <React.Fragment key={i}>
-                <ProjectCard info={project} />
+                <ProjectCard info={project} index={i} />
             </React.Fragment>
         )
     })
