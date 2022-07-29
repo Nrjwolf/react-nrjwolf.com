@@ -57,7 +57,7 @@ const ProjectCard: FC<ProjectCardProps> = props => {
                 <Skeleton isLoaded={isImgLoaded} minH={[imgHeigth / 4, imgHeigth / 2, imgHeigth]}>
                     <Button onClick={onClick}>
                         <Hover scaleTo={1.01}>
-                            {/* <ImageShadow src={imageUrl} onLoad={onImageLoaded} /> */}
+                            <ImageShadow src={imageUrl} onLoad={onImageLoaded} />
                         </Hover>
                     </Button>
                 </Skeleton>

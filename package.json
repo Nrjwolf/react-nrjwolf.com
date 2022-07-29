@@ -1,6 +1,6 @@
 {
   "name": "nrjwolf.com",
-  "version": "1.0.32",
+  "version": "1.0.33",
   "private": true,
   "dependencies": {
     "@chakra-ui/react": "^2.2.4",
