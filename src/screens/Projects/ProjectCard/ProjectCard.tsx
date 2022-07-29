@@ -7,6 +7,7 @@ import Line from '../../../components/lib/Line/Line'
 import AppContext from '../../../context/AppContext'
 import { getDirectusImage } from '../../../utils/getDirectusImage'
 import { Project } from '../projectsTypes'
+import { Skeleton, SkeletonCircle, SkeletonText } from '@chakra-ui/react'
 
 type ProjectCardProps = {
     info: Project
@@ -18,9 +19,14 @@ const imgHeigth = 200
 const ProjectCard: FC<ProjectCardProps> = props => {
     const info = props.info
     const imageUrl = getDirectusImage(info.preview, imgWidth, imgHeigth)
+    const [isImgLoaded, setIsImgLoaded] = React.useState(false)
 
     const onClick = () => {
         window.open(info.url, '_blank', 'noopener,noreferrer')
+    }
+
+    const onImageLoaded = () => {
+        setIsImgLoaded(true)
     }
 
     return (
@@ -29,11 +35,13 @@ const ProjectCard: FC<ProjectCardProps> = props => {
             padding: '20px',
         }}>
 
-            <Button onClick={onClick}>
-                <Hover scaleTo={1.01} yTo={-1} duration={100}>
-                    <ImageShadow src={imageUrl} width='100%' />
-                </Hover>
-            </Button>
+            <Skeleton isLoaded={isImgLoaded} height={imgHeigth}>
+                <Button onClick={onClick}>
+                    <Hover scaleTo={1.01} yTo={-1} duration={100}>
+                        <ImageShadow src={imageUrl} width='100%' onLoad={onImageLoaded} />
+                    </Hover>
+                </Button>
+            </Skeleton>
 
             <Button onClick={onClick}>
                 <Text style='bold' size={14}>

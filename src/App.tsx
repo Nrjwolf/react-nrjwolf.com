@@ -1,12 +1,15 @@
 import AppProvider from './context/AppContext'
 import Home from "./screens/Home/Home"
 import Navigation from './utils/Navigation/Navigation'
+import { ChakraProvider } from '@chakra-ui/react'
 
 export default function App() {
   return (
-    <AppProvider>
-      <Navigation>
-      </Navigation>
-    </AppProvider>
+    <ChakraProvider>
+      <AppProvider>
+        <Navigation>
+        </Navigation>
+      </AppProvider>
+    </ChakraProvider>
   )
 }

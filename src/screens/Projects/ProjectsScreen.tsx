@@ -15,8 +15,24 @@ type ProjectScreenProps = {
     children?: React.ReactNode
 }
 
+const ProjectsList = (projects: Project[]) => {
+    const projectsList = projects.filter(x => x.status == 'published').map((project, i) => {
+        return (
+            <React.Fragment key={i}>
+                <ProjectCard info={project} />
+            </React.Fragment>
+        )
+    })
+    return (
+        <div style={{ marginTop: 10 }}>
+            {projectsList}
+        </div>
+    )
+}
+
 const ProjectScreen: FC<ProjectScreenProps> = props => {
     const [isLoading, setIsLoading] = React.useState(true)
+    const [isFadeInProjects, setIsFadeInProjects] = React.useState(false)
     const [projects, setProjects] = React.useState<Project[]>([])
 
     useEffect(() => {
@@ -28,14 +44,6 @@ const ProjectScreen: FC<ProjectScreenProps> = props => {
 
         init()
     }, [])
-
-    const projectsList = projects.filter(x => x.status == 'published').map(project => {
-        return (
-            <ProjectCard info={project} />
-        )
-    })
-
-    console.log(projects)
 
     if (isLoading) {
         return (
@@ -50,15 +58,10 @@ const ProjectScreen: FC<ProjectScreenProps> = props => {
     return (
         <AppBackground>
             <CenterHorizontally>
-
                 <ProjectsScreenColumn>
-
-                    <Header navigateOnClick={false} />
-                    <div style={{ marginTop: 10 }}>
-                        {projectsList}
-                    </div>
-
-                    <Footer/>
+                    <Header />
+                    {ProjectsList(projects)}
+                    <Footer />
                 </ProjectsScreenColumn>
             </CenterHorizontally>
         </AppBackground >

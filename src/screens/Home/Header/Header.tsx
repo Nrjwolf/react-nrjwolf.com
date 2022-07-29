@@ -13,7 +13,6 @@ import Column from '../../../components/app/Column/Column'
 
 type HeaderProps = {
     children?: React.ReactNode,
-    navigateOnClick?: boolean
 }
 
 const TIMING = {
@@ -23,7 +22,6 @@ const TIMING = {
 }
 
 const Header: FC<HeaderProps> = props => {
-    const { navigateOnClick = true } = props
     const navigation = useNavigate()
     const [isClickedOnLogo, setIsClickedOnLogo] = useState(false)
     const appContext = useContext(AppContext)
@@ -35,22 +33,11 @@ const Header: FC<HeaderProps> = props => {
         config: { duration: TIMING.FADE_OUT_ON_CLICK },
     })
 
-    const onLogoClick = async () => {
-        if (navigateOnClick) {
-            setIsClickedOnLogo(true)
-            await delay(TIMING.NAVIGATE_TO_PROJECTS_DELAY)
-            navigation(ROUTES.PROJECTS)
-        }
-    }
 
     return (
         <>
 
-            <animated.div style={animationFadeOutProps}>
-                <FadeIn duration={TIMING.FADE_IN_LOGO}>
-                    <ImageLogo src='images/nrjwolf-logo.png' width={100} onClick={() => onLogoClick()} />
-                </FadeIn>
-            </animated.div>
+            <ImageLogo src='images/nrjwolf-logo.png' width={100} />
 
             <animated.div style={animationFadeOutProps}>
 
