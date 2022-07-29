@@ -5,34 +5,18 @@ import FullscreenCenter from '../../components/app/FullscreenCenter/FullscreenCe
 import { CircleLoading } from '../../components/lib/CircleLoading/CircleLoading'
 import appConfig from '../../configs/app.config'
 import { get } from '../../utils/request'
-import Header from '../Home/Header/Header'
-import ProjectCard from './ProjectCard/ProjectCard'
-import ProjectsScreenColumn from './ProjectsScreenColumn'
-import { Project, Projects } from './projectsTypes'
+import Header from './Header/Header'
+import HomeScreenColumn from './HomeScreenColumn'
+import { Project, Projects } from './Projects/projectsTypes'
 import Footer from '../../components/app/Footer/Footer'
+import ProjectsList from './Projects/ProjectList/ProjectList'
 
-type ProjectScreenProps = {
+type HomeScreenProps = {
     children?: React.ReactNode
 }
 
-const ProjectsList = (projects: Project[]) => {
-    const projectsList = projects.filter(x => x.status == 'published').map((project, i) => {
-        return (
-            <React.Fragment key={i}>
-                <ProjectCard info={project} />
-            </React.Fragment>
-        )
-    })
-    return (
-        <div style={{ marginTop: 10 }}>
-            {projectsList}
-        </div>
-    )
-}
-
-const ProjectScreen: FC<ProjectScreenProps> = props => {
+const HomeScreen: FC<HomeScreenProps> = props => {
     const [isLoading, setIsLoading] = React.useState(true)
-    const [isFadeInProjects, setIsFadeInProjects] = React.useState(false)
     const [projects, setProjects] = React.useState<Project[]>([])
 
     useEffect(() => {
@@ -58,14 +42,14 @@ const ProjectScreen: FC<ProjectScreenProps> = props => {
     return (
         <AppBackground>
             <CenterHorizontally>
-                <ProjectsScreenColumn>
+                <HomeScreenColumn>
                     <Header />
-                    {ProjectsList(projects)}
+                    <ProjectsList projects={projects} />
                     <Footer />
-                </ProjectsScreenColumn>
+                </HomeScreenColumn>
             </CenterHorizontally>
         </AppBackground >
     )
 }
 
-export default ProjectScreen
+export default HomeScreen

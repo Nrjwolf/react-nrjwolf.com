@@ -1,11 +1,10 @@
 import React, { FC } from 'react'
 import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom"
 import Page404 from '../../components/app/Page404/Page404'
-import ProjectsScreen from '../../screens/Projects/ProjectsScreen'
+import HomeScreen from '../../screens/Home/HomeScreen'
 
 export const ROUTES = {
     HOME: '/',
-    PROJECTS: '/',
 }
 
 type NavigationProps = {
@@ -18,7 +17,7 @@ const Navigation: FC<NavigationProps> = props => {
             <Router>
                 {props.children}
                 <Routes>
-                    <Route path={ROUTES.PROJECTS} element={<ProjectsScreen />} />
+                    <Route path={ROUTES.HOME} element={<HomeScreen />} />
                     <Route path="*" element={<Page404 />} />
                 </Routes>
 

@@ -1,13 +1,12 @@
-import React, { FC, useContext } from 'react'
-import Text from '../../../components/app/Text/Text'
-import Hover from '../../../components/lib/Animations/HoverBump/HoverBump'
-import Button from '../../../components/lib/Button/Button'
-import ImageShadow from '../../../components/lib/ImageShadow/ImageShadow'
-import Line from '../../../components/lib/Line/Line'
-import AppContext from '../../../context/AppContext'
-import { getDirectusImage } from '../../../utils/getDirectusImage'
+import React, { FC } from 'react'
+import { Skeleton } from '@chakra-ui/react'
+import { getDirectusImage } from '../../../../utils/getDirectusImage'
+import Button from '../../../../components/lib/Button/Button'
+import ImageShadow from '../../../../components/lib/ImageShadow/ImageShadow'
+import Text from '../../../../components/app/Text/Text'
+import Hover from '../../../../components/lib/Animations/HoverBump/HoverBump'
+import Line from '../../../../components/lib/Line/Line'
 import { Project } from '../projectsTypes'
-import { Skeleton, SkeletonCircle, SkeletonText } from '@chakra-ui/react'
 
 type ProjectCardProps = {
     info: Project
