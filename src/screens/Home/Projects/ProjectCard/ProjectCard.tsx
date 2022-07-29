@@ -54,13 +54,13 @@ const ProjectCard: FC<ProjectCardProps> = props => {
         <animated.div style={{ ...appearAnimationProps }}>
 
             <Box maxW={imgWidth} marginBottom={5}>
-                <Skeleton isLoaded={isImgLoaded} minH={[imgHeigth / 4, imgHeigth / 2, imgHeigth]}>
-                    <Button onClick={onClick}>
+                <Button onClick={onClick}>
+                    <Skeleton isLoaded={isImgLoaded} minH={[imgHeigth / 4, imgHeigth / 2, imgHeigth]}>
                         <Hover scaleTo={1.01}>
                             <ImageShadow src={imageUrl} onLoad={onImageLoaded} />
                         </Hover>
-                    </Button>
-                </Skeleton>
+                    </Skeleton>
+                </Button>
 
                 <Text style='bold' size={14} color={fontColor}>
                     {info.title}
