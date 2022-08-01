@@ -7,9 +7,10 @@ export type Project = {
     date_updated: null | string
     id: number
     preview: string
+    preview_image: string
     description: string
     url: string
     sort: null | number
     status: string
-    title: string
+    title: string,
 }
