@@ -9,6 +9,7 @@ import Line from '../../../../components/lib/Line/Line'
 import { Project } from '../projectsTypes'
 import { useSpring, animated } from 'react-spring'
 import { AppContext } from '../../../../context/AppContext'
+import Shadow from '../../../../components/lib/Shadow/Shadow'
 
 type ProjectCardProps = {
     info: Project,
@@ -27,7 +28,6 @@ const ProjectCard: FC<ProjectCardProps> = props => {
     const highlightColor = appContext?.highlightColor
 
     const info = props.info
-    const imageUrl = getDirectusImage(info.preview, imgWidth, imgHeigth)
     const [isImgLoaded, setIsImgLoaded] = React.useState(false)
 
     const onClick = () => {
@@ -56,9 +56,14 @@ const ProjectCard: FC<ProjectCardProps> = props => {
             <Box maxW={imgWidth} marginBottom={5}>
                 <Button onClick={onClick}>
                     <Skeleton isLoaded={isImgLoaded} minH={[imgHeigth / 4, imgHeigth / 2, imgHeigth]}>
-                        <Hover scaleTo={1.01}>
-                            <ImageShadow src={imageUrl} onLoad={onImageLoaded} />
-                        </Hover>
+                        {/* <ImageShadow src={imageUrl} onLoad={onImageLoaded} /> */}
+                        <Shadow>
+                            <Box maxW={imgWidth} overflow='hidden' minH={imgHeigth / 4} maxH={imgHeigth} display='flex' justifyContent='center' alignItems='center'>
+                                <Hover scaleTo={1.01}>
+                                    <Image src={info.preview_image} onLoad={onImageLoaded} />
+                                </Hover>
+                            </Box>
+                        </Shadow>
                     </Skeleton>
                 </Button>
 

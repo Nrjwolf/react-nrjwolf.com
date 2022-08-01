@@ -9,7 +9,6 @@ type ProjectsListProps = {
 
 const ProjectsList: FC<ProjectsListProps> = props => {
     const { projects } = props
-
     const projectsList = projects.filter(x => x.status == 'published').map((project, i) => {
         return (
             <React.Fragment key={i}>
