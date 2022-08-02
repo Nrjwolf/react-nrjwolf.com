@@ -107,11 +107,11 @@ const PostScreen: FC<PostScreenProps> = props => {
     useEffect(() => {
         const init = async () => {
             try {
-                const post = await get(`https://hasura.api.nrjwolf.dev/api/rest/nrjwolf/com/post?name=${id}`)                
+                const post = await get(`https://hasura.api.nrjwolf.dev/api/rest/nrjwolf/com/post?name=${id}`)
                 if (post.nrjwolf_com_posts.length > 0 && post.nrjwolf_com_posts[0].status == 'published') {
                     const text = post.nrjwolf_com_posts[0].content
-                    console.log( post.nrjwolf_com_posts[0])
-                    
+                    console.log(post.nrjwolf_com_posts[0])
+
                     setText(text)
                 }
                 else {
@@ -139,16 +139,18 @@ const PostScreen: FC<PostScreenProps> = props => {
 
     return (
         <Box style={{ color: fontColor() }} display='flex' justifyContent='center' alignContent={'center'} marginTop={5}>
-            <Box minH='100vh' maxW={maxWidth} flex='1'>
-                <Header onClick={onClickHeader}/>
-                <Box marginTop={5} marginBottom={10}>
-                    <ReactMarkdown className="foo"
-                        components={ChakraUIRenderer(renderTheme)}
-                        children={text}
-                        skipHtml
-                    />
+            <Box maxW={'95%'} flex='1' display='flex' justifyContent='center' alignContent='center'>
+                <Box minH='100vh' maxW={maxWidth} flex='1'>
+                    <Header onClick={onClickHeader} />
+                    <Box marginTop={5} marginBottom={10}>
+                        <ReactMarkdown className="foo"
+                            components={ChakraUIRenderer(renderTheme)}
+                            children={text}
+                            skipHtml
+                        />
+                    </Box>
+                    <Footer />
                 </Box>
-                <Footer />
             </Box>
         </Box >
     )
