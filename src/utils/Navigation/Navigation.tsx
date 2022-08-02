@@ -2,6 +2,7 @@ import React, { FC } from 'react'
 import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom"
 import Page404 from '../../components/app/Page404/Page404'
 import HomeScreen from '../../screens/Home/HomeScreen'
+import PostScreen from '../../screens/Post/PostScreen'
 
 export const ROUTES = {
     HOME: '/',
@@ -18,7 +19,8 @@ const Navigation: FC<NavigationProps> = props => {
                 {props.children}
                 <Routes>
                     <Route path={ROUTES.HOME} element={<HomeScreen />} />
-                    <Route path="*" element={<Page404 />} />
+                    <Route path={'/post/:id'} element={<PostScreen />} />
+                    <Route path="*" element={<HomeScreen />} />
                 </Routes>
 
             </Router>

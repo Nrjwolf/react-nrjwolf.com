@@ -56,7 +56,6 @@ const ProjectCard: FC<ProjectCardProps> = props => {
             <Box maxW={imgWidth} marginBottom={5}>
                 <Button onClick={onClick}>
                     <Skeleton isLoaded={isImgLoaded} minH={[imgHeigth / 4, imgHeigth / 2, imgHeigth]}>
-                        {/* <ImageShadow src={imageUrl} onLoad={onImageLoaded} /> */}
                         <Shadow>
                             <Box maxW={imgWidth} overflow='hidden' minH={imgHeigth / 4} maxH={imgHeigth} display='flex' justifyContent='center' alignItems='center'>
                                 <Hover scaleTo={1.01}>

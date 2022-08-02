@@ -11,9 +11,11 @@ import CenterHorizontally from '../../../components/app/CenterHorizontally/Cente
 import Column from '../../../components/app/Column/Column'
 import { Center } from '@chakra-ui/react'
 import { AppContext } from '../../../context/AppContext'
+import Button from '../../../components/lib/Button/Button'
 
 type HeaderProps = {
     children?: React.ReactNode,
+    onClick?: () => void
 }
 
 const TIMING = {
@@ -34,11 +36,12 @@ const Header: FC<HeaderProps> = props => {
         config: { duration: TIMING.FADE_OUT_ON_CLICK },
     })
 
-
     return (
         <>
             <Center>
-                <ImageLogo src='images/nrjwolf-logo.png' width={100} />
+                <Button onClick={() => props?.onClick?.()}>
+                    <ImageLogo src='/images/nrjwolf-logo.png' width={100} />
+                </Button>
             </Center>
 
             <animated.div style={animationFadeOutProps}>
