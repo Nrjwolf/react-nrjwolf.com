@@ -15,6 +15,7 @@ import Shadow from '../../components/lib/Shadow/Shadow'
 import { useNavigate, useParams } from 'react-router-dom'
 import { get } from '../../utils/request'
 import { ROUTES } from '../../utils/Navigation/Navigation'
+import delay from '../../utils/delay'
 
 type PostScreenProps = {
     children?: React.ReactNode
@@ -131,10 +132,15 @@ const PostScreen: FC<PostScreenProps> = props => {
         init()
     }, [])
 
+    const onClickHeader = async () => {
+        await delay(200)
+        navigation(ROUTES.HOME)
+    }
+
     return (
         <Box style={{ color: fontColor() }} display='flex' justifyContent='center' alignContent={'center'} marginTop={5}>
             <Box minH='100vh' maxW={maxWidth} flex='1'>
-                <Header />
+                <Header onClick={onClickHeader}/>
                 <Box marginTop={5} marginBottom={10}>
                     <ReactMarkdown className="foo"
                         components={ChakraUIRenderer(renderTheme)}
