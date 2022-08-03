@@ -16,5 +16,5 @@ USER node
 
 RUN npm -v
 RUN yarn build
-CMD serve -s build
+CMD yarn start
 
