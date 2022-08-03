@@ -6,6 +6,13 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+a:link,
+a:visited,
+a:hover {
+    color: #f92572;
+    text-decoration: none;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -19,7 +26,6 @@ a {
   html {
     color-scheme: dark;
   }
-
   body {
     color: white;
     background: black;

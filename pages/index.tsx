@@ -1,7 +1,5 @@
-import React, { FC, useEffect } from 'react'
-import { Flex, Box, Stack, VStack } from '@chakra-ui/react'
-import Head from 'next/head'
-import Image from 'next/image'
+import React, { } from 'react'
+import { Box } from '@chakra-ui/react'
 import Header from '../components/app/Header/Header'
 import ProjectsList from '../components/app/Projects/ProjectsList/ProjectList'
 import Footer from '../components/app/Footer/Footer'
@@ -22,12 +20,8 @@ export async function getServerSideProps() {
 }
 
 const HomeScreen = ({ projects }) => {
-  console.log(projects)
-
   const onHeaderClick = () => {
-    // go to home
   }
-
   return (
     <>
       <Box>
