@@ -26,14 +26,22 @@ export async function getStaticPaths() {
     const paths = posts.map((post) => ({
         params: { id: post.name },
     }))
-    return { paths, fallback: false }
+    return {
+        paths,
+        fallback: 'blocking'
+    }
 }
 
 export async function getStaticProps({ params }) {
     const res = await fetch(`https://hasura.api.nrjwolf.dev/api/rest/nrjwolf/com/post?name=${params.id}`)
     const data = await res.json()
     const post = data.nrjwolf_com_posts[0]
-    return { props: { content: post.content } }
+    return {
+        props: {
+            content: post.content
+        },
+        revalidate: 10, // In seconds
+    }
 }
 
 const mdRenderTheme = {
