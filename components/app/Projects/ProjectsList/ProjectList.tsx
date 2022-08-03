@@ -12,11 +12,11 @@ const ProjectsList: FC<ProjectsListProps> = props => {
     const { projects } = props
     const projectsList = projects.filter(x => x.status == 'published').map((project, i) => {
         return (
-            <Box marginTop={10} marginBottom={10}>
-                <React.Fragment key={i}>
+            <React.Fragment key={i}>
+                <Box marginTop={10} marginBottom={10}>
                     <ProjectCard info={project} index={i} />
-                </React.Fragment>
-            </Box>
+                </Box>
+            </React.Fragment>
         )
     })
     return (

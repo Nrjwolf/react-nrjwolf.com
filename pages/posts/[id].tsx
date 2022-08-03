@@ -7,7 +7,6 @@ import Header from "../../components/app/Header/Header"
 import ReactMarkdown from 'react-markdown'
 import Footer from '../../components/app/Footer/Footer'
 import dynamic from 'next/dynamic'
-// import YoutubeVideo from '../../components/app/YoutubeVideo/YoutubeVideo'
 
 const YoutubeVideo = dynamic(() => import('../../components/app/YoutubeVideo/YoutubeVideo'), {
     ssr: false,
@@ -120,7 +119,7 @@ const Post: FC<PostProps> = ({ content }) => {
             <Flex maxW={maxWidth} direction='column' justifyContent='center'>
                 <Header onClick={onHeaderClick} />
                 <Box marginBottom={10}>
-                    <ReactMarkdown children={content} skipHtml components={mdRenderTheme} />
+                    <ReactMarkdown children={content} components={mdRenderTheme} skipHtml />
                 </Box>
                 <Footer />
             </Flex>
