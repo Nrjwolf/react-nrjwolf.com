@@ -59,16 +59,16 @@ const mdRenderTheme = {
 
         )
     },
-    li: (props: any) => {
-        const { node, inline, className, children } = props
-        return (
-            <Flex>
-                <Flex maxW={'90%'} marginLeft={'3%'}>
-                    <Text textAlign='left' as="li" fontSize="15" fontWeight="bold" {...props} />
-                </Flex>
-            </Flex>
-        )
-    },
+    // li: (props: any) => {
+    //     const { node, inline, className, children } = props
+    //     return (
+    //         <Flex>
+    //             <Flex maxW={'90%'} marginLeft={'3%'}>
+    //                 <Text textAlign='left' as="li" fontSize="15" fontWeight="bold" {...props} />
+    //             </Flex>
+    //         </Flex>
+    //     )
+    // },
     p: (props: any) => {
         const { node, inline, className, children } = props
         const match = /language-(\w+)/.exec(className || '')
