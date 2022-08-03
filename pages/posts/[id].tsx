@@ -115,17 +115,15 @@ const Post: FC<PostProps> = ({ content }) => {
     }
 
     return (
-        <>
-            <Flex maxW={maxWidth} direction='column' justifyContent='center'>
-                <Header onClick={onHeaderClick} />
-                <Box marginBottom={10}>
-                    <div className="article">
-                        <ReactMarkdown children={content} components={mdRenderTheme} skipHtml />
-                    </div>
-                </Box>
-                <Footer />
-            </Flex>
-        </>
+        <Flex maxW={maxWidth} direction='column' justifyContent='center'>
+            <Header onClick={onHeaderClick} />
+            <Box marginBottom={10}>
+                <article>
+                    <ReactMarkdown children={content} components={mdRenderTheme} skipHtml />
+                </article>
+            </Box>
+            <Footer />
+        </Flex>
     )
 }
 
