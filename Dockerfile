@@ -6,7 +6,6 @@ COPY package.json ./
 COPY yarn.lock ./
 
 RUN yarn
-RUN npm install -g serve
 COPY . .
 
 EXPOSE 3000
