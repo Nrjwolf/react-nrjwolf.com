@@ -119,7 +119,9 @@ const Post: FC<PostProps> = ({ content }) => {
             <Flex maxW={maxWidth} direction='column' justifyContent='center'>
                 <Header onClick={onHeaderClick} />
                 <Box marginBottom={10}>
-                    <ReactMarkdown children={content} components={mdRenderTheme} skipHtml />
+                    <div className="article">
+                        <ReactMarkdown children={content} components={mdRenderTheme} skipHtml />
+                    </div>
                 </Box>
                 <Footer />
             </Flex>
