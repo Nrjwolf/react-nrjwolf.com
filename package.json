@@ -1,6 +1,6 @@
 {
   "name": "nrjwolf.com",
-  "version": "1.0.57",
+  "version": "1.0.58",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -14,7 +14,6 @@
     "@emotion/styled": "^11",
     "@types/node": "^18.6.3",
     "@types/react": "^18.0.15",
-    "chakra-ui-markdown-renderer": "^4.1.0",
     "framer-motion": "^6",
     "next": "12.2.3",
     "next-mdx-remote": "^4.1.0",

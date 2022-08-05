@@ -1,6 +1,4 @@
-import { useEffect, useState } from 'react'
-import { Box, Text, Image, AspectRatio, Flex } from "@chakra-ui/react"
-import ChakraUIRenderer from "chakra-ui-markdown-renderer"
+import { Box, Text, Image, Flex } from "@chakra-ui/react"
 import { useRouter } from "next/router"
 import React, { FC } from "react"
 import Header from "../../components/app/Header/Header"
@@ -59,16 +57,6 @@ const mdRenderTheme = {
 
         )
     },
-    // li: (props: any) => {
-    //     const { node, inline, className, children } = props
-    //     return (
-    //         <Flex>
-    //             <Flex maxW={'90%'} marginLeft={'3%'}>
-    //                 <Text textAlign='left' as="li" fontSize="15" fontWeight="bold" {...props} />
-    //             </Flex>
-    //         </Flex>
-    //     )
-    // },
     p: (props: any) => {
         const { node, inline, className, children } = props
         const match = /language-(\w+)/.exec(className || '')
