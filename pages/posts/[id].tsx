@@ -1,14 +1,15 @@
-import { Box, Text, Image, Flex } from "@chakra-ui/react"
+import { Box, Text, Image, Flex, ListItem, List } from "@chakra-ui/react"
 import { useRouter } from "next/router"
 import React, { FC } from "react"
 import Header from "../../components/app/Header/Header"
 import ReactMarkdown from 'react-markdown'
 import Footer from '../../components/app/Footer/Footer'
 import dynamic from 'next/dynamic'
+import YoutubeVideo from '../../components/app/YoutubeVideo/YoutubeVideo'
 
-const YoutubeVideo = dynamic(() => import('../../components/app/YoutubeVideo/YoutubeVideo'), {
-    ssr: false,
-})
+// const YoutubeVideo = dynamic(() => import('../../components/app/YoutubeVideo/YoutubeVideo'), {
+//     ssr: false,
+// })
 
 type PostProps = {
     children?: React.ReactNode,
@@ -53,8 +54,9 @@ const mdRenderTheme = {
         const { node, inline, className, children } = props
         const { alt, src } = node.properties
         return (
-            <Image src={src} alt={alt} maxH={650} justifySelf='center' />
-
+            <Flex justifyContent={'center'}>
+                <Image bgColor={'red'} marginTop={2} marginBottom={2} src={src} alt={alt} maxH={650} />
+            </Flex>
         )
     },
     p: (props: any) => {
@@ -66,7 +68,6 @@ const mdRenderTheme = {
             if (typeof child == 'string') {
                 const youtube = child.split('youtube_')
                 if (youtube.length > 1) {
-                    console.log(`yotube`)
                     overridenChildren.push(<YoutubeVideo id={youtube[1]} />)
                 } else {
                     overridenChildren.push(child)
@@ -76,11 +77,17 @@ const mdRenderTheme = {
             }
         }
         return (
-            <Text fontSize={17}>
+            <div>
                 {overridenChildren}
-            </Text>
+            </div>
         )
     },
+    li: (props: any) => {
+        const { node, inline, className, children } = props
+        return (
+            <li style={{ marginLeft: '1.5em' }}>{children}</li>
+        )
+    }
     // code(props: any) {
     //     const { node, inline, className, children } = props
     //     const match = /language-(\w+)/.exec(className || '')
